@@ -27,6 +27,7 @@
 		<![CDATA[
 			select a.no, a.name, a.comment, date_format(a.reg_date, '%Y-%m-%d') as regDate, count(b.no) as postCount
 			from category a left outer join post b on a.no = b.category_no
+			where a.user_id = #{id}
 			group by a.no;
 		]]>
 	</select>

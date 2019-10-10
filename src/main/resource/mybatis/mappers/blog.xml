@@ -7,7 +7,7 @@
 	<insert id="insert" parameterType="String">
 		<![CDATA[
 			insert into blog 
-			values(#{id}, '기본블로그', 'spring-logo')
+			values(#{id}, '기본블로그', 'spring-logo.jpg')
 		]]>
 		<selectKey keyProperty="no" resultType="Long" order="AFTER">
 			<![CDATA[
