@@ -4,7 +4,7 @@ public class UserVo {
 	private String id;
 	private String name;
 	private String password;
-	private String reg_Date;
+	private String regDate;
 	
 	public String getId() {
 		return id;
@@ -24,11 +24,11 @@ public class UserVo {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getReg_Date() {
-		return reg_Date;
+	public String getRegDate() {
+		return regDate;
 	}
-	public void setReg_Date(String reg_Date) {
-		this.reg_Date = reg_Date;
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
 	}	
 	
 }

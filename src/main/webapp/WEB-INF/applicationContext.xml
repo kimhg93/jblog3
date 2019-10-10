@@ -17,7 +17,7 @@
 	<aop:aspectj-autoproxy/>
 	<context:annotation-config />
 	<context:component-scan
-		base-package="kr.co.itcen.jblog.repository, kr.co.itcen.jblog.service">
+		base-package="kr.co.itcen.jblog.repository, kr.co.itcen.jblog.service, kr.co.itcen.jblog.security">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Repository" />
 		<context:include-filter type="annotation"
