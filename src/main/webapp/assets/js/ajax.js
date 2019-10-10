@@ -1,9 +1,11 @@
 function addCategory() {
     var formData = $("#add_category").serialize();
     var rowcnt = $("#category_list tr").length;
+    var postUrl = $("#add_url").val();
+    var path = $("#path").val();
     $.ajax({
         type: "POST",
-        url: "${path }/${blog.id }/admin/category",
+        url: postUrl,
         data: formData,
         success: function(response) {	        	
         	$("#category_list").append("<tr id='category_"+response.no+"'><td>"+
@@ -12,7 +14,7 @@ function addCategory() {
         								0+"</td><td>"+
         								response.comment+"</td><td>"+        								
         								"<form id=del_"+response.no+">"+
-        								"<input type='image' src='${path }/assets/images/delete.jpg' onclick='removeCategory(this.form);return false;'>"+			
+        								"<input type='image' src='"+path+"/assets/images/delete.jpg' onclick='removeCategory(this.form);return false;'>"+			
         								"<input type='hidden' id='category_no' name='no' value='"+response.no+"'>"+
         								"</form>"+
         								"</td></tr>");
@@ -25,12 +27,12 @@ function addCategory() {
         }        
     });    
 }
-
-function removeCategory(form) {
-    var formData = $("#"+form.id).serialize();
+function removeCategory(form) {	
+	var formData = $("#"+form.id).serialize();
+	var postUrl = $("#del_url").val();
     $.ajax({
         type: "POST",
-        url: "${path }/${blog.id }/admin/deleteCategory",
+        url: postUrl,
         data: formData,
         success: function(response) {		  
         	if(response>0){

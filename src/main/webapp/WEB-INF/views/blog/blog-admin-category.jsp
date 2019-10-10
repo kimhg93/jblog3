@@ -36,6 +36,7 @@
 						<td>
 						<form id="del_${categorys.no }">
 							<input type="image" src="${path }/assets/images/delete.jpg" onclick="removeCategory(this.form);return false;">							
+							<input type="hidden" id="del_url" value="${path }/${id }/admin/deleteCategory">
 							<input type="hidden" id="category_no" name="no" value="${categorys.no }">
 						</form>	
 						</td>
@@ -60,7 +61,11 @@
 		      		</tr>
 		      		<tr>
 		      			<td class="s">&nbsp;</td>
-		      			<td><input id="btn_add" type="button" value="카테고리 추가" onclick="addCategory()"></td>
+		      			<td>
+		      				<input id="btn_add" type="button" value="카테고리 추가" onclick="addCategory()">
+		      				<input type="hidden" id="add_url" value="${path }/${id }/admin/category">
+		      				<input type="hidden" id="path" value="${path }">
+		      			</td>
 		      		</tr>      		      		
 		      	</table> 
 		      	</form>

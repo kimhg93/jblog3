@@ -31,7 +31,7 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/**/admin/**" />
 			<bean class="kr.co.itcen.jblog.security.AdminInterceptor"/>
-		</mvc:interceptor>	
+		</mvc:interceptor>
 	</mvc:interceptors>
 	
 	<context:component-scan base-package="kr.co.itcen.jblog.controller" />
