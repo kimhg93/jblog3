@@ -21,17 +21,13 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
 		
 		Map pathVariables = (Map) request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE); 
 		if(pathVariables==null) {
-			System.out.println("path null");
 			response.sendRedirect(request.getContextPath()+"/"+authUser.getId());
 			return false;
 		}
 		if(authUser==null) {
-			System.out.println("session null");
 			response.sendRedirect(request.getContextPath());
 			return false;
 		}
-		System.out.println(authUser.getId());
-		System.out.println(pathVariables.toString());
 		
 		 if(!pathVariables.get("id").equals(authUser.getId())) {
 		  response.sendRedirect(request.getContextPath()+"/"+authUser.getId()); 

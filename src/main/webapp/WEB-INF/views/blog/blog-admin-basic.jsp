@@ -6,6 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JBlog</title>
 <Link rel="stylesheet" href="${path}/assets/css/jblog.css">
+<script src="${path }/assets/js/jquery/jquery-1.9.0.js" type="text/javascript"></script>
+<script src="${path }/assets/js/ajax.js" type="text/javascript"></script>
 </head>
 <body>
 	<div id="container">
@@ -17,15 +19,15 @@
 					<li><a href="${path}/${blog.id}/admin/category">카테고리</a></li>					
 					<li><a href="${path}/${blog.id}/admin/write">글작성</a></li>
 				</ul>
-				<form action="${path }/${blog.id }/admin/basic" method="post" enctype="multipart/form-data">
+				<form action="" id="update_form" method="post" enctype="multipart/form-data">
 	 		      	<table class="admin-config">
 			      		<tr>
 			      			<td class="t">블로그 제목</td>
-			      			<td><input type="text" size="40" name="title" value="${blog.title }"></td>
+			      			<td><input type="text" size="40" id="title" name="title" value="${blog.title }"></td>
 			      		</tr>
 			      		<tr>
 			      			<td class="t">로고이미지</td>
-			      			<td><img src="${path }/assets/logos/${blog.logo }"></td>      			
+			      			<td><img id="logo_img" src="${path }/assets/logos/${blog.logo }"></td>      			
 			      		</tr>      		
 			      		<tr>
 			      			<td class="t">&nbsp;</td>
@@ -33,10 +35,12 @@
 			      		</tr>           		
 			      		<tr>
 			      			<td class="t">&nbsp;</td>
-			      			<td class="s"><input type="submit" value="기본설정 변경"></td>      			
+			      			<td class="s"><input type="button" value="기본설정 변경" onclick="updateBlog(); return false;"></td>      			
 			      		</tr>           		
 			      	</table>
 				</form>
+				<input type="hidden" id="update_path" value="${path }/${blog.id }/admin/basic">
+				<input type="hidden" id="path" value="${path }">
 			</div>
 		</div>
 		<c:import url="/WEB-INF/views/includes/footer.jsp" />

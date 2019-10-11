@@ -22,6 +22,12 @@
 		]]>
 	</select>
 	
+	<select id="getList" resultType="blogvo">
+		<![CDATA[
+			select id, title, logo from blog order by logo desc limit 0,9
+		]]>
+	</select>
+	
 	<update id="update" parameterType="blogvo">
 		<![CDATA[
 			update blog set title=#{title }, logo=#{logo } where id=#{id };	

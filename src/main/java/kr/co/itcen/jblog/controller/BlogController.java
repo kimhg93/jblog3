@@ -75,14 +75,15 @@ public class BlogController {
 		return "blog/blog-admin-basic";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="/admin/basic", method=RequestMethod.POST)
-	public String basic(@PathVariable String id, BlogVo vo, 
-							 @RequestParam(value="newlogo", required=false )MultipartFile multipartFile) {
-		String logo = blogService.restore(multipartFile);
+	public BlogVo basic(@PathVariable String id, BlogVo vo, 
+							 @RequestParam(value="newlogo", required=false)MultipartFile multipartFile) {
+		String logo = blogService.restore(multipartFile);		
 		vo.setLogo(logo);
 		vo.setId(id);
 		blogService.update(vo);
-		return "redirect:/"+id;
+		return vo;
 	}
 	
 	@RequestMapping(value="/admin/category", method=RequestMethod.GET)

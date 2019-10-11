@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Calendar;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,9 @@ public class BlogService {
 		blogDao.update(vo);
 	}
 	
+	public List<BlogVo> getList() {
+		return blogDao.getList();
+	}
 	public String restore(MultipartFile multipartFile) {
 		String url = "";
 		try {				
@@ -62,4 +66,6 @@ public class BlogService {
 		filename += "."+extName;
 		return filename;
 	}
+
+	
 }

@@ -11,6 +11,7 @@
 	<div class="center-content">
 		<h1 class="logo">JBlog</h1>
 		<ul class="menu">
+		<li><a href="${path }/list">블로그 목록</a></li>
 			<c:choose>
 				<c:when test="${empty authUser }">
 					<li><a href="${path }/user/login">로그인</a></li>

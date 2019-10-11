@@ -22,11 +22,12 @@ function addCategory() {
         	$("#add_comment").val("");
         },
         error: function() {	
-        	alert("error");
+        	alert("message=" + request.responseText);
             location.reload();
         }        
     });    
 }
+
 function removeCategory(form) {	
 	var formData = $("#"+form.id).serialize();
 	var postUrl = $("#del_url").val();
@@ -41,7 +42,30 @@ function removeCategory(form) {
         	
         },
         error: function() {	
-            alert("error");
+        	alert("message=" + request.responseText);
+            location.reload();
+        }        
+    });    
+}
+
+function updateBlog() {
+    var form = $('#update_form')[0];
+    var data = new FormData(form);
+    var updatePath = $("#update_path").val();
+    var path = $("#path").val();
+    $.ajax({
+        type: "POST",
+        enctype: "multipart/form-data",
+        url: updatePath,
+        data: data,
+        processData: false,
+        contentType: false,
+        success: function(response) {
+        	$("#logo_img").attr("src", path+"/assets/logos/"+response.logo);
+        	$("#title").val(response.title);
+        },
+        error: function(request,status,error) {	
+        	alert("message=" + request.responseText);
             location.reload();
         }        
     });    
