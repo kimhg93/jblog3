@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.itcen.jblog.service.UserService;
 import kr.co.itcen.jblog.vo.UserVo;
@@ -38,6 +40,12 @@ public class UserController {
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public void logout() {
 		System.out.println("로그아웃 됨");
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/checkid", method=RequestMethod.GET)
+	public int checkId(@RequestParam String id) {
+		return userService.checkId(id);
 	}
 	
 }

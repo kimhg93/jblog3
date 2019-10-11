@@ -1,3 +1,31 @@
+function checkId() {
+    var id = $("#blog-id").val();
+    var checkPath = $("#check_path").val();
+    $.ajax({
+        type: "GET",
+        url: checkPath+"?id="+id,
+        data: "",
+        success: function(response) {
+        	if(response==0){
+        		$("#success").show();
+        		$("#fail").hide();
+        	} else {
+        		$("#success").hide();
+        		$("#fail").show();
+            	$("#blog-id").val("");
+        	}        	
+        },
+        error: function(request,status,error) {	
+        	alert("message=" + request.responseText);
+            location.reload();
+        }        
+    });    
+}
+
+function hideResult(){
+	$("#success").hide();
+	$("#fail").hide();
+}
 function addCategory() {
     var formData = $("#add_category").serialize();
     var rowcnt = $("#category_list tr").length;

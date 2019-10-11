@@ -1,13 +1,13 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/includes/jstl.jsp"%>
 <!doctype html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JBlog</title>
-<Link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
+<Link rel="stylesheet" href="${path}/assets/css/jblog.css">
+<script src="${path }/assets/js/jquery/jquery-1.9.0.js" type="text/javascript"></script>
+<script src="${path }/assets/js/ajax.js" type="text/javascript"></script>
 </head>
 <body>
 	<div class="center-content">
@@ -30,22 +30,25 @@
 			<input id="name"name="name" type="text" value="">
 			
 			<label class="block-label" for="blog-id">아이디</label>
-			<input id="blog-id" name="id" type="text"> 
-			<input id="btn-checkemail" type="button" value="id 중복체크">
+			<input id="blog-id" name="id" type="text" onchange="hideResult();" required> 
+			<input id="btn-checkemail" type="button" value="id 중복체크" onclick="checkId()" required>
+			<p id="fail" style="color:red;display:none">이미 사용중인 아이디 입니다.</p>
+			<p id="success" style="color:green;display:none">사용 가능합니다</p>
 			<img id="img-checkemail" style="display: none;" src="${pageContext.request.contextPath}/assets/images/check.png">
 
 			<label class="block-label" for="password">패스워드</label>
-			<input id="password" name="password" type="password" />
+			<input id="password" name="password" type="password" required/>
 
-			<fieldset>
+		<!-- 	<fieldset>
 				<legend>약관동의</legend>
 				<input id="agree-prov" type="checkbox" name="agreeProv" value="y">
 				<label class="l-float">서비스 약관에 동의합니다.</label>
-			</fieldset>
+			</fieldset> -->
 
 			<input type="submit" value="가입하기">
 
 		</form>
+		<input type="hidden" value="${path }/user/checkid" id="check_path">
 	</div>
 </body>
 </html>

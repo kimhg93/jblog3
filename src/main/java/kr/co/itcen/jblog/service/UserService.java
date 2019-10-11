@@ -18,4 +18,7 @@ public class UserService {
 	public UserVo getUser(UserVo vo) {		
 		return userDao.getUser(vo);
 	}
+	public int checkId(String id) {
+		return userDao.checkId(id);		
+	}
 }

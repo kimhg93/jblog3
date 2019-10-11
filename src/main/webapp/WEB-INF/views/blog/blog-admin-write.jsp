@@ -22,7 +22,7 @@
 			      		<tr>
 			      			<td class="t">제목</td>
 			      			<td>
-			      				<input type="text" size="60" name="title">
+			      				<input type="text" size="60" name="title" required>
 				      			<select name="categoryNo">
 				      			<c:forEach items="${category }" var="categorys" varStatus="status">
 				      				<option value="${categorys.no }">${categorys.name }</option>
