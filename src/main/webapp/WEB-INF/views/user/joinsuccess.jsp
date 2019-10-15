@@ -1,13 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/includes/jstl.jsp"%>
-<!doctype html>
+<%@ include file="/WEB-INF/views/includes/lib.jsp"%>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JBlog</title>
-<Link rel="stylesheet" href="${path}/assets/css/jblog.css">
-</head>
 <body>
 	<div class="center-content">
 		<h1 class="logo">JBlog</h1>

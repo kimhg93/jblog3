@@ -37,6 +37,7 @@ public class UserController {
 	public void auth() {	
 		System.out.println("로그인 됨");
 	}
+	
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public void logout() {
 		System.out.println("로그아웃 됨");

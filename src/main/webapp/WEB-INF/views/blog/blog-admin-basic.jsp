@@ -1,14 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/includes/jstl.jsp"%>
-<!doctype html>
+<%@ include file="/WEB-INF/views/includes/lib.jsp"%>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JBlog</title>
-<Link rel="stylesheet" href="${path}/assets/css/jblog.css">
-<script src="${path }/assets/js/jquery/jquery-1.9.0.js" type="text/javascript"></script>
-<script src="${path }/assets/js/ajax.js" type="text/javascript"></script>
-</head>
 <body>
 	<div id="container">
 		<c:import url="/WEB-INF/views/includes/header.jsp" />
@@ -31,13 +23,14 @@
 			      		</tr>      		
 			      		<tr>
 			      			<td class="t">&nbsp;</td>
-			      			<td><input type="file" name="newlogo"></td>      			
+			      			<td><input type="file" name="newlogo" id="newlogo"></td>      			
 			      		</tr>           		
 			      		<tr>
 			      			<td class="t">&nbsp;</td>
 			      			<td class="s"><input type="button" value="기본설정 변경" onclick="updateBlog(); return false;"></td>      			
 			      		</tr>           		
 			      	</table>
+			      	<input type="hidden" name="logo" value="${blog.logo }">
 				</form>
 				<input type="hidden" id="update_path" value="${path }/${blog.id }/admin/basic">
 				<input type="hidden" id="path" value="${path }">

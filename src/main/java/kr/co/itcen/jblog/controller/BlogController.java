@@ -78,9 +78,15 @@ public class BlogController {
 	@ResponseBody
 	@RequestMapping(value="/admin/basic", method=RequestMethod.POST)
 	public BlogVo basic(@PathVariable String id, BlogVo vo, 
+							 @RequestParam(value="logo")String beforeLogo,
 							 @RequestParam(value="newlogo", required=false)MultipartFile multipartFile) {
-		String logo = blogService.restore(multipartFile);		
-		vo.setLogo(logo);
+		String logo = blogService.restore(multipartFile);	
+		System.out.println("logotest>>"+beforeLogo);
+		
+		if(logo!=null) {
+			vo.setLogo(logo);
+		}
+		
 		vo.setId(id);
 		blogService.update(vo);
 		return vo;
