@@ -21,10 +21,15 @@
 			select id, title, logo from blog where id = #{id}
 		]]>
 	</select>
+	<update id="updateHit" parameterType="String">
+		<![CDATA[
+			update blog set hit=hit+1 where id=#{id };	
+		]]>
+	</update>
 	
 	<select id="getList" resultType="blogvo">
 		<![CDATA[
-			select id, title, logo from blog order by logo desc limit 0,9
+			select id, title, logo, hit from blog order by hit desc limit 0,9;
 		]]>
 	</select>
 	

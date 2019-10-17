@@ -52,6 +52,7 @@ public class BlogController {
 		}
 		
 		BlogVo blog = blogService.get(id);
+		blogService.updateHit(id);
 		List<CategoryVo> categoryList = categoryService.getList(id);
 		model.addAttribute("blog", blog);
 		model.addAttribute("category", categoryList);	

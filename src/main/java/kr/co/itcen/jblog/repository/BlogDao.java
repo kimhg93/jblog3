@@ -26,4 +26,8 @@ public class BlogDao {
 		return sqlSession.selectList("blog.getList");
 	}
 
+	public void updateHit(String id) {
+		sqlSession.update("blog.updateHit", id);		
+	}
+
 }

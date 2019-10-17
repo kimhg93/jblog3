@@ -24,6 +24,11 @@ public class BlogService {
 	public BlogVo get(String id) {
 		return blogDao.get(id);		
 	}
+	
+	public void updateHit(String id) {
+		blogDao.updateHit(id);
+		
+	}
 
 	public void update(BlogVo vo) {
 		blogDao.update(vo);
@@ -66,6 +71,5 @@ public class BlogService {
 		filename += "."+extName;
 		return filename;
 	}
-
 	
 }

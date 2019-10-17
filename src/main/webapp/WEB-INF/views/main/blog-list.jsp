@@ -4,7 +4,7 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1>블로그 리스트</h1>		
+			<h1>인기 있는 블로그</h1>		
 			<ul>
 			<c:choose>
 				<c:when test="${empty authUser }">
@@ -22,8 +22,12 @@
 			<div id="blog_list">	
 				<c:forEach items="${vo }" var="blog" varStatus="status">
 				<div id="blog_panel">					
-					<div id="blog_title"><p>${blog.title }</p></div>
-					<a href="${path }/${blog.id}"><img id="blog_img" src="${path }/assets/logos/${blog.logo}"></a>					
+					<div id="blog_title">
+						<p>${blog.title }</p>
+						<span><strong>HIT</strong> ${blog.hit }</span>
+					</div>
+					<a href="${path }/${blog.id}"><img id="blog_img" src="${path }/assets/logos/${blog.logo}"></a>		
+							
 				</div>
 				</c:forEach>
 			</div>

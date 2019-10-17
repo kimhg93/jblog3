@@ -4,6 +4,7 @@ public class BlogVo {
 	private String id;
 	private String title;
 	private String logo;
+	private int hit;
 	
 	public String getId() {
 		return id;
@@ -22,6 +23,12 @@ public class BlogVo {
 	}
 	public void setLogo(String logo) {
 		this.logo = logo;
+	}
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
 	@Override
 	public String toString() {
