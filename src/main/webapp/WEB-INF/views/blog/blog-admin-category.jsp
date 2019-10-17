@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/includes/lib.jsp"%>
+<!doctype html>
 <html>
+<head>
+<style>
+	table{
+		font-size:1em;
+	}
+</style>
+</head>
 <body>
 	<div id="container">
 		<c:import url="/WEB-INF/views/includes/header.jsp" />
